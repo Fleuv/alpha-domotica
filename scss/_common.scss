@@ -1,0 +1,22 @@
+html, body {
+  font:14px $text;
+}
+body {
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headings;
+}
+
+.block {
+  width: 40%;
+  display: block;
+  border: 5px solid $grijs;
+  height: 100px;
+  margin: auto;
+  @include border-radius(10px);
+  h1 {
+    font-size: 24px;
+  }
+}
