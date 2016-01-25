@@ -18,7 +18,7 @@ if (!empty($rows)) :
     foreach ($rows as $row) :
         ?>
         <div class="row">
-            <span class="status <?php print $row['status"]; ?>"></span>
+            <span class="status <?php print $row['status']; ?>"></span>
  <span class="city"><?php print $row['city']; ?></span>
  <span class="street"><?php print $row['street']; ?></span>
  <span class="house"><?php print $row['house']; ?></span>
