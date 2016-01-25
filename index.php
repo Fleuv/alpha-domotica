@@ -1,22 +1,25 @@
 <?php
-require 'functions.php';
-require_once('header.php');
+
+define('ABSPATH', getcwd().'/');
+
+require_once(ABSPATH.'inc/header.php');
 
 
-?>
-<div class="block">
-    <h1>Inloggen</h1>
-    <form action="" method="post">
-        <input type="text" name="username" />
-        <button type="reset">reset</button>
-    </form>
-    <form action="" method="post">
-        <input type="password" name="password"/>
-        <button type="submit">login</button>
-    </form>
-</div>
+// Check if the user made an error
+if (!empty($error)) {
+    print '<div class="status error">'.$error.'</div>';
+}
 
+// Check if the user is logged in
+if (isset($_SESSION['user'])) {
+    // Check if the user is an admin
+    if ($_SESSION['user']['role'] == 1) {
+        include_once(ABSPATH.'html/admin.php');
+    } else {
+        include_once(ABSPATH.'html/user.php');
+    }
+} else {
+    include_once(ABSPATH.'html/login.php');
+}
 
-
-<?php
-require_once('footer.php');
+require_once(ABSPATH.'inc/footer.php');
