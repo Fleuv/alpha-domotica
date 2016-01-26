@@ -1,9 +1,9 @@
 <?php
 
 // Database configuration
-$dbname = 'custom_idp_project';
-$user = 'root';
-$pass = 'r158Lwb5E4j34pA';
+$dbname = 'db_name';
+$user = 'db_user';
+$pass = 'db_pass';
 $host = 'localhost';
 
 // Try to connect the database
