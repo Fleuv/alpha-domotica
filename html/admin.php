@@ -1,6 +1,6 @@
 <div class="row border thick">
     <h1>Beheerders paneel</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <button name="logout" type="submit">Uitloggen</button>
     </form>
 </div>

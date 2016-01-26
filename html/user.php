@@ -1,6 +1,6 @@
 <div class="block border thick">
     <h1>Gebruikerspaneel</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <section class="dotted">
             <ul>
                 <li><strong>Woonplaats:</strong><span><?php print $_SESSION['system']['city']; ?></span></li>

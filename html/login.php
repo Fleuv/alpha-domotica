@@ -1,6 +1,6 @@
 <div class="block border thick">
     <h1>Inloggen</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <p>
             <input type="text" name="username" placeholder="Gebruikersnaam" />
         </p>

@@ -4,7 +4,6 @@ define('ABSPATH', getcwd().'/');
 
 require_once(ABSPATH.'inc/header.php');
 
-
 // Check if the user made an error
 if (!empty($error)) {
     print '<div class="status error">'.$error.'</div>';

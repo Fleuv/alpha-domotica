@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'connect.php';
+include ABSPATH.'inc/connect.php';
 
 if (isset($_POST['login'])) {
     if (!empty($_POST['username']) and !empty($_POST['password'])) {
@@ -22,13 +22,13 @@ if (isset($_POST['login'])) {
                 if ($r) {
                     // Open user panel
                     $_SESSION['system'] = $r;
-                    header('Location: '.$_SERVER['PHP_SELF']);
+                    header('Location: '.$_SERVER['REQUEST_URI']);
                 } else {
                     $error = 'U account is niet gekoppeld aan een domotica systeem.';
                 }
             } else {
                 // Open admin panel
-                header('Location: '.$_SERVER['PHP_SELF']);
+                header('Location: '.$_SERVER['REQUEST_URI']);
             }
         } else {
             $error = 'Verkeerde gebruikersnaam of wachtwoord.';
@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
 
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('Location: '.$_SERVER['PHP_SELF']);
+    header('Location: '.$_SERVER['REQUEST_URI']);
 }
 
 if (isset($_POST['save'])) {
