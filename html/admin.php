@@ -1,10 +1,10 @@
-<div class="block">
+<div class="row border thick">
     <h1>Beheerders paneel</h1>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <button name="logout" type="submit">Uitloggen</button>
     </form>
 </div>
-<div class="block">
+<div class="block border thick">
     <h2>Domotica systemen</h2>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <input name="city" type="text" placeholder="Stad" />

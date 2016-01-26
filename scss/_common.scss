@@ -3,46 +3,81 @@ html, body {
 }
 body {
   text-align: center;
+  padding:20px;
 }
 
+p {
+  font-size:14px;
+}
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 22px;
+}
+h4 {
+  font-size:20px;
+}
+h5 {
+  font-size:18px;
+}
+h6 {
+  font-size:16px;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: $headings;
+  margin-bottom:20px;
+}
+
+.row {
+  margin-bottom:20px;
 }
 
 .block {
-  width: 40%;
-  display: block;
-  border: 5px solid $grey;
-  margin: auto;
+  padding:20px;
+  box-sizing: border-box;
+  width: percentage(1/3);
+  display: inline-block;
+}
+
+.border {
+  border:1px solid $grey;
   @include border-radius(10px);
-  h1 {
-    font-size: 24px;
+  &.thick {
+    border-width:5px;
   }
-  .switch {
-    display: inline-block;
-    background-color:$grey;
-    &.active {
-      .on {
-        cursor:default;
-        background-color:$blue;
-      }
-      .off {
-        cursor: pointer;
-        background-color: transparent;
-      }
+  &.dotted {
+    border-style:dotted;
+  }
+}
+
+.switch {
+  display: inline-block;
+  background-color:$grey;
+  &.active {
+    .on {
+      cursor:default;
+      background-color:$blue;
     }
-    a {
-      width:30px;
-      padding:8px;
-      color:$white;
-      line-height:100%;
-      display: inline-block;
-      &.on {
-        cursor:pointer;
-      }
-      &.off {
-        background-color:$blue;
-      }
+    .off {
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+  a {
+    width:30px;
+    padding:8px;
+    color:$white;
+    line-height:100%;
+    display: inline-block;
+    &.on {
+      cursor:pointer;
+    }
+    &.off {
+      background-color:$blue;
     }
   }
 }

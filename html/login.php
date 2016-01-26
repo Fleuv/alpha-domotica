@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block border thick">
     <h1>Inloggen</h1>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <p>
