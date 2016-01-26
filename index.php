@@ -1,8 +1,8 @@
 <?php
 
-define('ABSPATH', getcwd().'/');
+define('ABSPATH', getcwd().DIRECTORY_SEPARATOR);
 
-require_once(ABSPATH.'inc/header.php');
+require_once(ABSPATH.'inc'.DIRECTORY_SEPARATOR.'header.php');
 
 // Check if the user made an error
 if (!empty($error)) {
@@ -13,12 +13,12 @@ if (!empty($error)) {
 if (isset($_SESSION['user'])) {
     // Check if the user is an admin
     if ($_SESSION['user']['role'] == 1) {
-        include_once(ABSPATH.'html/admin.php');
+        include_once(ABSPATH.'html'.DIRECTORY_SEPARATOR.'admin.php');
     } else {
-        include_once(ABSPATH.'html/user.php');
+        include_once(ABSPATH.'html'.DIRECTORY_SEPARATOR.'user.php');
     }
 } else {
-    include_once(ABSPATH.'html/login.php');
+    include_once(ABSPATH.'html'.DIRECTORY_SEPARATOR.'login.php');
 }
 
-require_once(ABSPATH.'inc/footer.php');
+require_once(ABSPATH.'inc'.DIRECTORY_SEPARATOR.'footer.php');

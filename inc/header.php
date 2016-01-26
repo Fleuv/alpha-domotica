@@ -1,5 +1,5 @@
 <?php
-    require ABSPATH.'inc/functions.php';
+    require ABSPATH.'inc'.DIRECTORY_SEPARATOR.'functions.php';
 ?>
 <html>
 <head>

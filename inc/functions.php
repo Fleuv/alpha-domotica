@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include ABSPATH.'inc/connect.php';
+include ABSPATH.'inc'.DIRECTORY_SEPARATOR.'connect.php';
 
 if (isset($_POST['login'])) {
     if (!empty($_POST['username']) and !empty($_POST['password'])) {
