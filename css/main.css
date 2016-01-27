@@ -72,56 +72,57 @@ html, body {
 body {
   text-align: center;
   padding: 20px;
-  background: #FCFFF5 url("../img/logo.png") no-repeat fixed bottom right;
+  background: #193441 url("../img/logo.png") no-repeat fixed bottom right;
+  background-size: auto 100%;
 }
 
-/* line 10, ../scss/_common.scss */
+/* line 11, ../scss/_common.scss */
 p {
   font-size: 14px;
 }
 
-/* line 13, ../scss/_common.scss */
+/* line 14, ../scss/_common.scss */
 h1 {
   font-size: 28px;
 }
 
-/* line 16, ../scss/_common.scss */
+/* line 17, ../scss/_common.scss */
 h2 {
   font-size: 24px;
 }
 
-/* line 19, ../scss/_common.scss */
+/* line 20, ../scss/_common.scss */
 h3 {
   font-size: 22px;
 }
 
-/* line 22, ../scss/_common.scss */
+/* line 23, ../scss/_common.scss */
 h4 {
   font-size: 20px;
 }
 
-/* line 25, ../scss/_common.scss */
+/* line 26, ../scss/_common.scss */
 h5 {
   font-size: 18px;
 }
 
-/* line 28, ../scss/_common.scss */
+/* line 29, ../scss/_common.scss */
 h6 {
   font-size: 16px;
 }
 
-/* line 31, ../scss/_common.scss */
+/* line 32, ../scss/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: Impact, Charcoal, sans-serif;
   margin-bottom: 20px;
 }
 
-/* line 36, ../scss/_common.scss */
+/* line 37, ../scss/_common.scss */
 .row {
   margin-bottom: 20px;
 }
 
-/* line 40, ../scss/_common.scss */
+/* line 41, ../scss/_common.scss */
 .block {
   padding: 20px;
   box-sizing: border-box;
@@ -129,39 +130,51 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.7);
 }
+@media screen and (max-width: 721px) and (min-width: 480px) {
+  /* line 41, ../scss/_common.scss */
+  .block {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 481px) {
+  /* line 41, ../scss/_common.scss */
+  .block {
+    width: 100%;
+  }
+}
 
-/* line 48, ../scss/_common.scss */
+/* line 55, ../scss/_common.scss */
 .border {
   border: 1px solid #D1DBBD;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 51, ../scss/_common.scss */
+/* line 58, ../scss/_common.scss */
 .border.thick {
   border-width: 5px;
 }
-/* line 54, ../scss/_common.scss */
+/* line 61, ../scss/_common.scss */
 .border.dotted {
   border-style: dotted;
 }
 
-/* line 59, ../scss/_common.scss */
+/* line 66, ../scss/_common.scss */
 .switch {
   display: inline-block;
   background-color: #D1DBBD;
 }
-/* line 63, ../scss/_common.scss */
+/* line 70, ../scss/_common.scss */
 .switch.active .on {
   cursor: default;
   background-color: #3E606F;
 }
-/* line 67, ../scss/_common.scss */
+/* line 74, ../scss/_common.scss */
 .switch.active .off {
   cursor: pointer;
   background-color: transparent;
 }
-/* line 72, ../scss/_common.scss */
+/* line 79, ../scss/_common.scss */
 .switch a {
   width: 30px;
   padding: 8px;
@@ -169,11 +182,11 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 100%;
   display: inline-block;
 }
-/* line 78, ../scss/_common.scss */
+/* line 85, ../scss/_common.scss */
 .switch a.on {
   cursor: pointer;
 }
-/* line 81, ../scss/_common.scss */
+/* line 88, ../scss/_common.scss */
 .switch a.off {
   background-color: #3E606F;
 }
