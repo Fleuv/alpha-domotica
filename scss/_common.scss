@@ -5,7 +5,13 @@ body {
   text-align: center;
   padding:20px;
   background: $darkblue url("../img/logo.png") no-repeat fixed bottom right;
-  background-size: auto 100%;
+  background-size: auto auto;
+  @media screen and (max-width:$middle_max) and (min-width:$small_min) {
+    background-size: 80% auto;
+  }
+  @media screen and (max-width:$small_max) {
+    background-size: 100% auto;
+  }
 }
 
 p {
@@ -32,6 +38,24 @@ h6 {
 h1, h2, h3, h4, h5, h6 {
   font-family: $headings;
   margin-bottom:20px;
+}
+input {
+  width:100%;
+  border:0;
+  padding:8px 4px;
+  margin-bottom:10px;
+  display: inline-block;
+}
+button {
+  cursor: pointer;
+  border:0;
+  padding:4px 8px;
+  color:$white;
+  background-color: $darkblue;
+  @include border-radius(3px);
+  &:focus, &:hover {
+    background-color: $blue;
+  }
 }
 
 .row {
