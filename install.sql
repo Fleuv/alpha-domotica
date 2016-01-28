@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 26, 2016 at 08:05 AM
--- Server version: 5.6.27-0ubuntu1
+-- Generation Time: Jan 28, 2016 at 06:38 PM
+-- Server version: 5.6.28-0ubuntu0.15.10.1
 -- PHP Version: 5.6.11-1ubuntu3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,18 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `messages` (
   `message_id` int(11) NOT NULL,
-  `system_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `messages`
---
-
-INSERT INTO `messages` (`message_id`, `system_id`, `user_id`, `timestamp`) VALUES
-(1, 1, 2, '2016-01-26 07:02:23'),
-(2, 1, 2, '2016-01-26 07:05:00');
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -65,8 +56,8 @@ CREATE TABLE IF NOT EXISTS `systems` (
 --
 
 INSERT INTO `systems` (`system_id`, `user_id`, `ip`, `port`, `status`, `city`, `street`, `house`, `camera`, `lights`) VALUES
-(1, 2, '123.123.123.123', 80, 0, 'Utrecht', 'Nijenoord', '1', 0, 0),
-(2, 3, '321.321.321.321', 80, 0, 'Amsterdam', 'Damrak', '1', 0, 0);
+  (1, 2, '0', 0, 0, 'Utrecht', 'Nijenoord', '1', 0, 0),
+  (2, 3, '0', 0, 0, 'Amsterdam', 'Damrak', '1', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -86,9 +77,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `role`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
-(2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 0),
-(3, 'guest', '084e0343a0486ff05530df6c705c8bb4', 0);
+  (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+  (2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 0),
+  (3, 'guest', '084e0343a0486ff05530df6c705c8bb4', 0);
 
 --
 -- Indexes for dumped tables
@@ -98,19 +89,19 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `role`) VALUES
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`message_id`);
+ADD PRIMARY KEY (`message_id`);
 
 --
 -- Indexes for table `systems`
 --
 ALTER TABLE `systems`
-  ADD PRIMARY KEY (`system_id`);
+ADD PRIMARY KEY (`system_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -120,17 +111,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `systems`
 --
 ALTER TABLE `systems`
-  MODIFY `system_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `system_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

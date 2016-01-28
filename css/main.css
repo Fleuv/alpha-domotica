@@ -65,7 +65,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 1, ../scss/_common.scss */
 html, body {
-  font: 14px Tahoma, Geneva, sans-serif;
+  font: 0 Tahoma, Geneva, sans-serif normal;
 }
 
 /* line 4, ../scss/_common.scss */
@@ -93,52 +93,59 @@ p {
   font-size: 14px;
 }
 
-/* line 20, ../scss/_common.scss */
+/* line 21, ../scss/_common.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 25, ../scss/_common.scss */
 h1 {
   font-size: 28px;
 }
 
-/* line 23, ../scss/_common.scss */
+/* line 28, ../scss/_common.scss */
 h2 {
   font-size: 24px;
 }
 
-/* line 26, ../scss/_common.scss */
+/* line 31, ../scss/_common.scss */
 h3 {
   font-size: 22px;
 }
 
-/* line 29, ../scss/_common.scss */
+/* line 34, ../scss/_common.scss */
 h4 {
   font-size: 20px;
 }
 
-/* line 32, ../scss/_common.scss */
+/* line 37, ../scss/_common.scss */
 h5 {
   font-size: 18px;
 }
 
-/* line 35, ../scss/_common.scss */
+/* line 40, ../scss/_common.scss */
 h6 {
   font-size: 16px;
 }
 
-/* line 38, ../scss/_common.scss */
+/* line 43, ../scss/_common.scss */
 h1, h2, h3, h4, h5, h6 {
+  color: #193441;
   font-family: Impact, Charcoal, sans-serif;
   margin-bottom: 20px;
 }
 
-/* line 42, ../scss/_common.scss */
+/* line 49, ../scss/_common.scss */
 input {
   width: 100%;
   border: 0;
   padding: 8px 4px;
   margin-bottom: 10px;
   display: inline-block;
+  box-sizing: border-box;
 }
 
-/* line 49, ../scss/_common.scss */
+/* line 58, ../scss/_common.scss */
 button {
   cursor: pointer;
   border: 0;
@@ -149,69 +156,170 @@ button {
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 56, ../scss/_common.scss */
+/* line 65, ../scss/_common.scss */
 button:focus, button:hover {
   background-color: #3E606F;
 }
 
-/* line 61, ../scss/_common.scss */
-.row {
-  margin-bottom: 20px;
-}
-
-/* line 65, ../scss/_common.scss */
-.block {
+/* line 70, ../scss/_common.scss */
+header {
   padding: 20px;
+  margin: -20px -20px 20px;
   box-sizing: border-box;
-  width: 33.33333%;
-  display: inline-block;
   background-color: rgba(255, 255, 255, 0.7);
-}
-@media screen and (max-width: 721px) and (min-width: 480px) {
-  /* line 65, ../scss/_common.scss */
-  .block {
-    width: 80%;
-  }
-}
-@media screen and (max-width: 481px) {
-  /* line 65, ../scss/_common.scss */
-  .block {
-    width: 100%;
-  }
+  border-bottom: 5px solid #D1DBBD;
 }
 
-/* line 79, ../scss/_common.scss */
-.border {
-  border: 1px solid #D1DBBD;
+/* line 78, ../scss/_common.scss */
+section {
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px dashed #3E606F;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 82, ../scss/_common.scss */
-.border.thick {
-  border-width: 5px;
+
+/* line 86, ../scss/_common.scss */
+.results {
+  margin-top: 20px;
+  text-align: left;
 }
-/* line 85, ../scss/_common.scss */
-.border.dotted {
-  border-style: dotted;
+/* line 89, ../scss/_common.scss */
+.results .row {
+  width: 100%;
+  font-size: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  color: #193441;
+  padding: 10px 8px;
+  background-color: #94BFCA;
+  border-bottom: 1px solid #D1DBBD;
+}
+/* line 98, ../scss/_common.scss */
+.results .row:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+/* line 101, ../scss/_common.scss */
+.results .row:first-of-type {
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px;
+  border-radius: 10px 10px 0 0;
+}
+/* line 104, ../scss/_common.scss */
+.results .row:last-of-type {
+  border-bottom-width: 0;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 10px 10px;
+}
+/* line 108, ../scss/_common.scss */
+.results .row.active {
+  color: #FCFFF5;
+  background-color: #3E606F;
+}
+/* line 112, ../scss/_common.scss */
+.results .row span {
+  font-size: 14px;
+  margin-right: 2%;
+}
+/* line 116, ../scss/_common.scss */
+.results .row .status {
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+}
+/* line 121, ../scss/_common.scss */
+.results .row .status.off {
+  background-color: #D1DBBD;
+}
+/* line 124, ../scss/_common.scss */
+.results .row .status.on {
+  background-color: #3E606F;
 }
 
-/* line 90, ../scss/_common.scss */
+/* line 131, ../scss/_common.scss */
+.block {
+  padding: 20px;
+  width: 32%;
+  margin: 0 2% 20px 0;
+  font-size: 14px;
+  box-sizing: border-box;
+  vertical-align: top;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 5px solid #D1DBBD;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 721px) and (min-width: 480px) {
+  /* line 131, ../scss/_common.scss */
+  .block {
+    width: 80%;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 481px) {
+  /* line 131, ../scss/_common.scss */
+  .block {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+/* line 150, ../scss/_common.scss */
+.block:last-of-type {
+  margin-right: 0;
+}
+
+/* line 155, ../scss/_common.scss */
+.fields {
+  width: 100%;
+  font-size: 0;
+  display: inline-block;
+}
+/* line 159, ../scss/_common.scss */
+.fields input[name="city"] {
+  width: 30%;
+  border-right: 2px solid #D1DBBD;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+}
+/* line 164, ../scss/_common.scss */
+.fields input[name="street"] {
+  width: 40%;
+  border-right: 2px solid #D1DBBD;
+}
+/* line 168, ../scss/_common.scss */
+.fields input[name="house"] {
+  width: 30%;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+/* line 174, ../scss/_common.scss */
 .switch {
   display: inline-block;
   background-color: #D1DBBD;
 }
-/* line 94, ../scss/_common.scss */
+/* line 178, ../scss/_common.scss */
 .switch.active .on {
   cursor: default;
   background-color: #3E606F;
 }
-/* line 98, ../scss/_common.scss */
+/* line 182, ../scss/_common.scss */
 .switch.active .off {
   cursor: pointer;
   background-color: transparent;
 }
-/* line 103, ../scss/_common.scss */
+/* line 187, ../scss/_common.scss */
 .switch a {
   width: 30px;
   padding: 8px;
@@ -219,11 +327,11 @@ button:focus, button:hover {
   line-height: 100%;
   display: inline-block;
 }
-/* line 109, ../scss/_common.scss */
+/* line 193, ../scss/_common.scss */
 .switch a.on {
   cursor: pointer;
 }
-/* line 112, ../scss/_common.scss */
+/* line 196, ../scss/_common.scss */
 .switch a.off {
   background-color: #3E606F;
 }

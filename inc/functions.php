@@ -45,15 +45,15 @@ if (isset($_POST['logout'])) {
 
 if (isset($_POST['save'])) {
     // Get the new value
-    $lights = (isset($_POST['lights'])) ? $_POST['lights'] : 0;
-    $camera = (isset($_POST['camera'])) ? $_POST['camera'] : 0;
+    $lights = (isset($_POST['lights'])) ? intval($_POST['lights']) : 0;
+    $camera = (isset($_POST['camera'])) ? intval($_POST['camera']) : 0;
 
     // Update the database with the new value
     $q = $pdo->prepare('UPDATE systems SET lights = :lights, camera = :camera WHERE user_id = :uid');
     $q->execute(array(
         ':lights' => $_POST['lights'],
         ':camera' => $_POST['camera'],
-        ':uid' => $_SESSION['user']['user_id'],
+        ':uid' => $_SESSION['system']['user_id'],
     ));
 
     // Update the session with the new value
@@ -68,23 +68,27 @@ if (isset($_POST['save'])) {
     $r = $q->fetch();
 
     // Inform the related system with a POST request
-    $ip = rtrim($_SESSION['system']['ip']);
-    $port = rtrim($_SESSION['system']['port']);
-    $url = 'http://'.$ip.':'.$port.'/execute';
-    $data = array(
-        'user' => urlencode($_SESSION['user']['username']),
-        'pass' => urlencode($r['password']),
-        'lights' => urlencode($_SESSION['system']['lights']),
-        'camera' => urlencode($_SESSION['system']['camera']),
-    );
-    $data_string = '';
-    foreach($data as $key=>$value) { $data_string .= $key.'='.$value.'&'; }
-    rtrim($data_string,'&');
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_POST,count($data));
-    curl_setopt($ch,CURLOPT_POSTFIELDS,$data_string);
-    $result = curl_exec($ch);
+    if (intval($_SESSION['system']['status'])) {
+        $ip = rtrim($_SESSION['system']['ip']);
+        $port = rtrim($_SESSION['system']['port']);
+        $url = 'http://' . $ip . ':' . $port . '/execute';
+        $data = array(
+            'user' => urlencode($_SESSION['user']['username']),
+            'pass' => urlencode($r['password']),
+            'lights' => urlencode($_SESSION['system']['lights']),
+            'camera' => urlencode($_SESSION['system']['camera']),
+        );
+        $data_string = '';
+        foreach ($data as $key => $value) {
+            $data_string .= $key . '=' . $value . '&';
+        }
+        rtrim($data_string, '&');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, count($data));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        $result = curl_exec($ch);
+    }
 
     // Redirect back to the form
     header('Location:'.$_SERVER['REQUEST_URI']);
@@ -100,13 +104,18 @@ if (isset($_POST['api']) and !empty($_POST['user']) and !empty($_POST['pass'])) 
 
     // Handle the on boot api call
     if ($_POST['api'] == 'boot' and $current_user) {
-        $q = $pdo->prepare('UPDATE systems SET ip = :ip, port = :port WHERE user_id = :uid');
+        $q = $pdo->prepare('UPDATE systems SET ip = :ip, port = :port, status = :status WHERE user_id = :uid');
         $q->execute(array(
             ':ip' => $_POST['ip'],
-            ':port' => $_POST['port'],
+            ':port' => intval($_POST['port']),
+            ':status' => intval($_POST['status']),
             ':uid' => $current_user['user_id'],
         ));
-        print('The system is ready to interact.');
+        if (intval($_POST['status'])) {
+            print('The system is ready to interact.');
+        } else {
+            print('The system shutdown successfully.');
+        }
     }
 
     // Handle messages send via the api
@@ -119,4 +128,12 @@ if (isset($_POST['api']) and !empty($_POST['user']) and !empty($_POST['pass'])) 
         print('Message was successfully sent.');
     }
     die();
+}
+
+if (isset($_GET['selected']) and (isset($_SESSION['user']['role']) and $_SESSION['user']['role'] == 1)) {
+    $q = $pdo->prepare('SELECT * FROM systems WHERE user_id = :id');
+    $q->execute(array(':id' => $_GET['selected']));
+    $r = $q->fetch();
+    $_SESSION['system'] = $r;
+    header('Location:'.substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], '?selected')));
 }

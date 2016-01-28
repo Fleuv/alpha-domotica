@@ -1,10 +1,10 @@
-<div class="heading border thick">
+<header>
     <h1>Gebruikerspaneel</h1>
     <button name="logout" type="submit">Uitloggen</button>
-</div>
-<div class="block border thick">
+</header>
+<div class="block">
     <h2>Systeem</h2>
-    <section class="dotted">
+    <section>
         <ul>
             <li><strong>Woonplaats:</strong><span><?php print $_SESSION['system']['city']; ?></span></li>
             <li><strong>Straatnaam:</strong><span><?php print $_SESSION['system']['street']; ?></span></li>
@@ -35,5 +35,7 @@
             <input name="camera" type="hidden" value="<?php print $camera; ?>" />
         </div>
     </section>
-    <button name="save" type="submit">Opslaan</button>
+    <div class="actions">
+        <button name="save" type="submit">Opslaan</button>
+    </div>
 </div>

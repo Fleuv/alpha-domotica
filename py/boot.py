@@ -8,6 +8,7 @@ sendBoot = urllib.urlencode([
 	('pass', password),
 	('ip', ip),
 	('port', port),
+	('status', 1),
 ])
 
 # Send te boot message
