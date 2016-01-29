@@ -180,13 +180,31 @@ section {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
+/* line 84, ../scss/_common.scss */
+section ul li {
+  width: 100%;
+  display: inline-block;
+  padding: 5px 0;
+  text-align: left;
+  border-bottom: 1px dashed #3E606F;
+}
+/* line 90, ../scss/_common.scss */
+section ul li:last-of-type {
+  border-bottom-width: 0;
+}
+/* line 93, ../scss/_common.scss */
+section ul li strong {
+  margin-right: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
 
-/* line 86, ../scss/_common.scss */
+/* line 101, ../scss/_common.scss */
 .results {
   margin-top: 20px;
   text-align: left;
 }
-/* line 89, ../scss/_common.scss */
+/* line 104, ../scss/_common.scss */
 .results .row {
   width: 100%;
   font-size: 0;
@@ -197,35 +215,35 @@ section {
   background-color: #94BFCA;
   border-bottom: 1px solid #D1DBBD;
 }
-/* line 98, ../scss/_common.scss */
+/* line 113, ../scss/_common.scss */
 .results .row:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 101, ../scss/_common.scss */
+/* line 116, ../scss/_common.scss */
 .results .row:first-of-type {
   -moz-border-radius: 10px 10px 0 0;
   -webkit-border-radius: 10px;
   border-radius: 10px 10px 0 0;
 }
-/* line 104, ../scss/_common.scss */
+/* line 119, ../scss/_common.scss */
 .results .row:last-of-type {
   border-bottom-width: 0;
   -moz-border-radius: 0 0 10px 10px;
   -webkit-border-radius: 0;
   border-radius: 0 0 10px 10px;
 }
-/* line 108, ../scss/_common.scss */
+/* line 123, ../scss/_common.scss */
 .results .row.active {
   color: #FCFFF5;
   background-color: #3E606F;
 }
-/* line 112, ../scss/_common.scss */
+/* line 127, ../scss/_common.scss */
 .results .row span {
   font-size: 14px;
   margin-right: 2%;
 }
-/* line 116, ../scss/_common.scss */
+/* line 131, ../scss/_common.scss */
 .results .row .status {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -234,16 +252,16 @@ section {
   width: 14px;
   display: inline-block;
 }
-/* line 121, ../scss/_common.scss */
+/* line 136, ../scss/_common.scss */
 .results .row .status.off {
-  background-color: #D1DBBD;
+  background-color: red;
 }
-/* line 124, ../scss/_common.scss */
+/* line 139, ../scss/_common.scss */
 .results .row .status.on {
-  background-color: #3E606F;
+  background-color: green;
 }
 
-/* line 131, ../scss/_common.scss */
+/* line 146, ../scss/_common.scss */
 .block {
   padding: 20px;
   width: 32%;
@@ -259,31 +277,37 @@ section {
   border-radius: 10px;
 }
 @media screen and (max-width: 721px) and (min-width: 480px) {
-  /* line 131, ../scss/_common.scss */
+  /* line 146, ../scss/_common.scss */
   .block {
     width: 80%;
     margin-right: 0;
   }
 }
 @media screen and (max-width: 481px) {
-  /* line 131, ../scss/_common.scss */
+  /* line 146, ../scss/_common.scss */
   .block {
     width: 100%;
     margin-right: 0;
   }
 }
-/* line 150, ../scss/_common.scss */
+/* line 165, ../scss/_common.scss */
 .block:last-of-type {
   margin-right: 0;
 }
 
-/* line 155, ../scss/_common.scss */
+/* line 170, ../scss/_common.scss */
 .fields {
   width: 100%;
   font-size: 0;
   display: inline-block;
 }
-/* line 159, ../scss/_common.scss */
+/* line 174, ../scss/_common.scss */
+.fields input[name="username"], .fields input[name="password"] {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 177, ../scss/_common.scss */
 .fields input[name="city"] {
   width: 30%;
   border-right: 2px solid #D1DBBD;
@@ -291,12 +315,12 @@ section {
   -webkit-border-radius: 5px;
   border-radius: 5px 0 0 5px;
 }
-/* line 164, ../scss/_common.scss */
+/* line 182, ../scss/_common.scss */
 .fields input[name="street"] {
   width: 40%;
   border-right: 2px solid #D1DBBD;
 }
-/* line 168, ../scss/_common.scss */
+/* line 186, ../scss/_common.scss */
 .fields input[name="house"] {
   width: 30%;
   -moz-border-radius: 0 5px 5px 0;
@@ -304,22 +328,22 @@ section {
   border-radius: 0 5px 5px 0;
 }
 
-/* line 174, ../scss/_common.scss */
+/* line 192, ../scss/_common.scss */
 .switch {
   display: inline-block;
   background-color: #D1DBBD;
 }
-/* line 178, ../scss/_common.scss */
+/* line 196, ../scss/_common.scss */
 .switch.active .on {
   cursor: default;
   background-color: #3E606F;
 }
-/* line 182, ../scss/_common.scss */
+/* line 200, ../scss/_common.scss */
 .switch.active .off {
   cursor: pointer;
   background-color: transparent;
 }
-/* line 187, ../scss/_common.scss */
+/* line 205, ../scss/_common.scss */
 .switch a {
   width: 30px;
   padding: 8px;
@@ -327,11 +351,11 @@ section {
   line-height: 100%;
   display: inline-block;
 }
-/* line 193, ../scss/_common.scss */
+/* line 211, ../scss/_common.scss */
 .switch a.on {
   cursor: pointer;
 }
-/* line 196, ../scss/_common.scss */
+/* line 214, ../scss/_common.scss */
 .switch a.off {
   background-color: #3E606F;
 }

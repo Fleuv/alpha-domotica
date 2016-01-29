@@ -61,9 +61,9 @@ if (isset($_POST['save'])) {
     $_SESSION['system']['camera'] = $camera;
 
     // Get the user's password (hash)
-    $q = $pdo->prepare('SELECT password FROM users WHERE user_id = :uid');
+    $q = $pdo->prepare('SELECT username, password FROM users WHERE user_id = :uid');
     $q->execute(array(
-        ':uid' => $_SESSION['user']['user_id'],
+        ':uid' => $_SESSION['system']['user_id'],
     ));
     $r = $q->fetch();
 
@@ -73,7 +73,7 @@ if (isset($_POST['save'])) {
         $port = rtrim($_SESSION['system']['port']);
         $url = 'http://' . $ip . ':' . $port . '/execute';
         $data = array(
-            'user' => urlencode($_SESSION['user']['username']),
+            'user' => urlencode($r['username']),
             'pass' => urlencode($r['password']),
             'lights' => urlencode($_SESSION['system']['lights']),
             'camera' => urlencode($_SESSION['system']['camera']),

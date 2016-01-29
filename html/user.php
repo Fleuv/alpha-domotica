@@ -12,7 +12,7 @@
         </ul>
     </section>
     <section class="lights">
-        <h2>Verlichting</h2>
+        <h3>Verlichting</h3>
         <?php
             $lights = $_SESSION['system']['lights'];
             $lights_class = ($lights==1) ? ' active' : '';
@@ -24,7 +24,7 @@
         </div>
     </section>
     <section class="camera">
-        <h2>Camera</h2>
+        <h3>Camera</h3>
         <?php
             $camera = $_SESSION['system']['camera'];
             $camera_class = ($camera==1) ? ' active' : '';
